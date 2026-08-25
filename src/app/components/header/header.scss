@@ -1,0 +1,22 @@
+:host { display: block; }
+
+.site-header {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  margin: 0 auto;
+  max-width: var(--content-width);
+  padding: var(--space-6) var(--gutter);
+}
+
+.brand { align-items: center; display: flex; font-weight: 700; gap: var(--space-3); }
+.brand-mark { align-items: center; background: var(--coral); border-radius: 50%; color: white; display: flex; font: 500 12px var(--mono); height: 34px; justify-content: center; width: 34px; }
+nav { display: flex; gap: var(--space-8); }
+nav a, .linkedin-link { font-size: var(--text-sm); }
+nav a:hover, .linkedin-link:hover { color: var(--coral); }
+.linkedin-link { border-bottom: 1px solid var(--ink); padding-bottom: 4px; }
+
+@media (max-width: 680px) {
+  .site-header { padding: var(--space-4) var(--gutter); }
+  nav { display: none; }
+}

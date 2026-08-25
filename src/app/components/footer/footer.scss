@@ -1,0 +1,3 @@
+:host { display: block; }
+.site-footer { border-top: 1px solid var(--line); color: rgba(29, 36, 32, .65); display: flex; font: var(--text-xs) var(--mono); gap: var(--space-3); justify-content: space-between; margin: 0 auto; max-width: var(--content-width); padding: var(--space-6) var(--gutter) var(--space-8); }
+@media (max-width: 680px) { .site-footer { align-items: flex-start; flex-direction: column; } }

@@ -1,0 +1,6 @@
+:host { display: block; }
+.skills-grid { display: flex; flex-wrap: wrap; gap: 10px; }
+.skill-badge { border: 1px solid rgba(100, 255, 218, .35); border-radius: 3px; color: var(--lime); display: inline-flex; font: var(--text-xs) var(--mono); gap: 8px; padding: 9px 11px; transition: background .2s ease; }
+.skill-badge:hover { background: rgba(100, 255, 218, .1); }
+.skill-index { color: var(--muted); }
+.skill-badge > span:last-child { font-size: inherit; font-weight: 400; }

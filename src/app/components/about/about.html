@@ -1,0 +1,50 @@
+<section class="about-section" id="about" aria-labelledby="about-title">
+  <div class="about-copy">
+    <p class="eyebrow">02 / About</p>
+    <h2 id="about-title">Building systems.<br /><em>Solving problems.</em></h2>
+    <p class="bio">{{ profile.summary }}</p>
+  </div>
+  <div class="skills-panel">
+    <p class="panel-label">Technical toolkit</p>
+    <app-skills-grid></app-skills-grid>
+  </div>
+  <div class="experience-panel" id="experience">
+    <p class="panel-label">Work history</p>
+    <app-experience-timeline></app-experience-timeline>
+  </div>
+
+  <div class="profile-panels">
+    <section class="profile-panel" id="education" aria-labelledby="education-title">
+      <p class="panel-label">Education</p>
+      <h3 id="education-title">Where I learned<br /><em>the fundamentals.</em></h3>
+      @for (education of profile.education; track education.institution) {
+        <article class="education-entry">
+          <div>
+            <h4>{{ education.institution }}</h4>
+            <p>{{ education.qualification }}</p>
+          </div>
+          <span>{{ education.dates }}</span>
+          <p class="entry-detail">{{ education.detail }}</p>
+        </article>
+      }
+    </section>
+
+    <section class="profile-panel" id="certifications" aria-labelledby="certifications-title">
+      <p class="panel-label">Learning record</p>
+      <h3 id="certifications-title">Curious by<br /><em>default.</em></h3>
+      <div class="certification-list">
+        @for (certification of profile.certifications; track certification.title) {
+          <article class="certification-entry">
+            <div>
+              <h4>{{ certification.title }}</h4>
+              <p>{{ certification.issuer }} <span aria-hidden="true">/</span> {{ certification.issued }}</p>
+            </div>
+            @if (certification.credentialUrl) {
+              <a [href]="certification.credentialUrl" target="_blank" rel="noopener" [attr.aria-label]="'View credential for ' + certification.title">↗</a>
+            }
+          </article>
+        }
+      </div>
+    </section>
+  </div>
+</section>

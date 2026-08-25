@@ -1,0 +1,23 @@
+@if (project; as project) {
+  <main class="case-study" aria-labelledby="case-study-title">
+    <a class="back-link" routerLink="/projects">← Back to projects</a>
+    <header class="case-header">
+      <p class="eyebrow">Case study / {{ project.id }}</p>
+      <h1 id="case-study-title">{{ project.title }}</h1>
+      <p class="case-description">{{ project.description }}</p>
+      <div class="tech-stack">@for (tech of project.techStack; track tech) { <span>{{ tech }}</span> }</div>
+    </header>
+    <img class="feature-image" [src]="project.thumbnail" [alt]="project.title + ' feature preview'" />
+    <div class="case-grid">
+      <section><p class="eyebrow">The problem</p><p>{{ project.problem }}</p></section>
+      <section><p class="eyebrow">My role</p><p>{{ project.role }}</p></section>
+    </div>
+    <section class="screenshots" aria-labelledby="screenshots-title">
+      <p class="eyebrow" id="screenshots-title">Screens / In context</p>
+      <div class="screenshot-grid">@for (screenshot of project.screenshots; track screenshot) { <img [src]="screenshot" [alt]="project.title + ' screenshot'" /> }</div>
+    </section>
+    <section class="outcome"><p class="eyebrow">The outcome</p><h2>{{ project.outcome }}</h2></section>
+  </main>
+} @else {
+  <main class="not-found"><p class="eyebrow">Project not found</p><h1>This case study doesn’t exist.</h1><a class="back-link" routerLink="/projects">← Back to projects</a></main>
+}

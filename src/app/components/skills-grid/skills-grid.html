@@ -1,0 +1,8 @@
+<div class="skills-grid" aria-label="Technical skills">
+  @for (skill of skills; track skill; let index = $index) {
+    <span class="skill-badge">
+      <span class="skill-index">0{{ index + 1 }}</span>
+      <span>{{ skill }}</span>
+    </span>
+  }
+</div>

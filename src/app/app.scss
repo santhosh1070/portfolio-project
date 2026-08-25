@@ -1,0 +1,15 @@
+:host {
+	display: block;
+	min-height: 100vh;
+}
+
+.page-shell {
+	margin: 0 auto;
+	max-width: var(--content-width);
+	min-height: calc(100vh - 100px);
+	padding: 0 var(--gutter);
+}
+
+@media (min-width: 980px) {
+	.page-shell { margin-left: min(33vw, 420px); max-width: 850px; padding: 0; }
+}

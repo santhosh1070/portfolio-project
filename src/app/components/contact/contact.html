@@ -1,0 +1,24 @@
+<section class="contact-section" id="contact" aria-labelledby="contact-title">
+  <div class="contact-intro">
+    <p class="eyebrow">03 / Let’s connect</p>
+    <h2 id="contact-title">Have a good idea?<br /><em>Let’s make it real.</em></h2>
+    <p class="contact-copy">Send a message and your email app will open with everything ready to go.</p>
+    <a class="contact-link" href="https://www.linkedin.com/in/santhosh-kumar-523b061a1/" target="_blank" rel="noopener">Find me on LinkedIn ↗</a>
+  </div>
+
+  <form class="contact-form" [formGroup]="contactForm" (ngSubmit)="onSubmit()" novalidate>
+    <label for="name">Name</label>
+    <input id="name" type="text" formControlName="name" autocomplete="name" placeholder="Your name" [attr.aria-invalid]="isInvalid('name')" />
+    @if (isInvalid('name')) { <p class="error">Please enter at least 2 characters.</p> }
+
+    <label for="email">Email</label>
+    <input id="email" type="email" formControlName="email" autocomplete="email" placeholder="you@example.com" [attr.aria-invalid]="isInvalid('email')" />
+    @if (isInvalid('email')) { <p class="error">Please enter a valid email address.</p> }
+
+    <label for="message">Message</label>
+    <textarea id="message" rows="5" formControlName="message" placeholder="Tell me about your idea" [attr.aria-invalid]="isInvalid('message')"></textarea>
+    @if (isInvalid('message')) { <p class="error">Please enter at least 10 characters.</p> }
+
+    <button class="submit-button" type="submit">Open email draft <span aria-hidden="true">↗</span></button>
+  </form>
+</section>

@@ -1,0 +1,19 @@
+<div class="timeline" aria-label="Work experience">
+  @for (experience of experiences; track experience.company + experience.dates) {
+    <article class="timeline-entry">
+      <div class="timeline-marker" aria-hidden="true"></div>
+      <div class="timeline-meta">
+        <span>{{ experience.dates }}</span>
+      </div>
+      <div class="timeline-content">
+        <h3>{{ experience.role }}</h3>
+        <p class="company">{{ experience.company }}</p>
+        <ul>
+          @for (achievement of experience.achievements; track achievement) {
+            <li>{{ achievement }}</li>
+          }
+        </ul>
+      </div>
+    </article>
+  }
+</div>
