@@ -1,7 +1,6 @@
 import { Component, inject } from '@angular/core';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
-
-const CONTACT_EMAIL = 'santhosh.kumar@example.com';
+import { environment } from '../../../environments/environment';
 
 @Component({
   selector: 'app-contact',
@@ -17,22 +16,52 @@ export class ContactComponent {
     message: ['', [Validators.required, Validators.minLength(10)]]
   });
   submitted = false;
+  sending = false;
+  sendStatus: 'success' | 'error' | null = null;
 
   isInvalid(controlName: string): boolean {
     const control = this.contactForm.get(controlName);
     return !!control && control.invalid && (control.touched || this.submitted);
   }
 
-  onSubmit(): void {
+  async onSubmit(): Promise<void> {
     this.submitted = true;
+    this.sendStatus = null;
     if (this.contactForm.invalid) {
       this.contactForm.markAllAsTouched();
       return;
     }
 
     const { name, email, message } = this.contactForm.getRawValue();
-    const subject = `Portfolio enquiry from ${name}`;
-    const body = `Name: ${name}\nEmail: ${email}\n\n${message}`;
-    window.location.href = `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    this.sending = true;
+
+    try {
+      const response = await fetch(environment.contactApiUrl, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          name: name ?? '',
+          email: email ?? '',
+          message: message ?? ''
+        })
+      });
+
+      const result = await response.json().catch(() => ({ message: 'Invalid server response.' }));
+
+      if (!response.ok) {
+        throw new Error(result?.message || 'Unable to send message.');
+      }
+
+      this.sendStatus = 'success';
+      this.contactForm.reset();
+      this.submitted = false;
+    } catch (error) {
+      console.error('Contact form submission failed', error);
+      this.sendStatus = 'error';
+    } finally {
+      this.sending = false;
+    }
   }
 }

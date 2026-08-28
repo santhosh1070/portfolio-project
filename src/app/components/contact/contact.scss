@@ -5,3 +5,10 @@
 @media (max-width: 760px) { .contact-section { display: block; padding: var(--space-14) var(--gutter) var(--space-20); }.contact-form { margin-top: var(--space-14); } }
 
 .github-profile-link { display: table; margin-top: var(--space-5); }
+
+:root:not([data-theme]) .contact-form label { color: #7a3d32; }
+:root:not([data-theme]) .submit-button { background: #e96953; color: #1d2420; }
+:root:not([data-theme]) .submit-button:hover { background: #c95340; }
+.submit-button:disabled { cursor: wait; opacity: .65; }
+.form-status { font: var(--text-xs) var(--mono); margin: var(--space-2) 0 0; }
+.form-status.success { color: #267a3e; }
