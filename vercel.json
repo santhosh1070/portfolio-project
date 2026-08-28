@@ -1,15 +1,21 @@
 {
   "buildCommand": "npm run build",
   "outputDirectory": "dist/portfolio-project/browser",
+  "headers": [
+    {
+      "source": "/version.json",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "no-store, no-cache, must-revalidate"
+        }
+      ]
+    }
+  ],
   "rewrites": [
     {
       "source": "/((?!api(?:/|$)).*)",
       "destination": "/index.html"
     }
-  ],
-  "functions": {
-    "api/contact.js": {
-      "runtime": "nodejs22.x"
-    }
-  }
+  ]
 }

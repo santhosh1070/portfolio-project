@@ -1,4 +1,5 @@
 export const environment = {
   production: true,
-  contactApiUrl: 'https://portfolio-project-api.vercel.app/api/contact'
+  // Uses the API route on the current Vercel deployment.
+  contactApiUrl: '/api/contact'
 };

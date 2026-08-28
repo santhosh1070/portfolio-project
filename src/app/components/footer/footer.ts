@@ -5,4 +5,11 @@ import { Component } from '@angular/core';
   templateUrl: './footer.html',
   styleUrl: './footer.scss'
 })
-export class FooterComponent {}
+export class FooterComponent {
+  readonly version = this.getVersion();
+
+  private getVersion(): string {
+    const version = localStorage.getItem('portfolio-app-version') ?? 'development';
+    return version.startsWith('build-') ? version : version.slice(0, 7);
+  }
+}
