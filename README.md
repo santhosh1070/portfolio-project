@@ -15,7 +15,10 @@ SMTP_USER=your-gmail-address@gmail.com
 SMTP_PASS=your-gmail-app-password
 SMTP_FROM=your-gmail-address@gmail.com
 RECIPIENT_EMAIL=your-recipient-address@example.com
+CONTACT_RATE_LIMIT=10
 ```
+
+The contact API defaults to 10 total requests for the lifetime of a warm serverless instance. Configure the limit in Vercel Project Settings if needed. The counter resets only when the serverless instance restarts or the project is redeployed.
 
 4. Deploy. The frontend calls `/api/contact` on the same Vercel deployment.
 

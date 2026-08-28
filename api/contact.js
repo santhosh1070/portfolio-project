@@ -1,5 +1,24 @@
 const nodemailer = require('nodemailer');
 
+const defaultRateLimit = 10;
+let requestCount = 0;
+
+function getPositiveInt(value, fallback, minimum) {
+  const parsed = Number.parseInt(value || '', 10);
+  return Number.isFinite(parsed) ? Math.max(minimum, parsed) : fallback;
+}
+
+const rateLimit = getPositiveInt(process.env.CONTACT_RATE_LIMIT, defaultRateLimit, 1);
+
+function isRateLimited() {
+  if (requestCount >= rateLimit) {
+    return true;
+  }
+
+  requestCount += 1;
+  return false;
+}
+
 function escapeHtml(value) {
   return String(value)
     .replace(/&/g, '&amp;')
@@ -20,6 +39,12 @@ module.exports = async function handler(req, res) {
 
   if (req.method !== 'POST') {
     return res.status(405).json({ message: 'Method not allowed.' });
+  }
+
+  if (isRateLimited()) {
+    return res.status(429).json({
+      message: 'The contact form has reached its submission limit. Please try again later.'
+    });
   }
 
   const { name, email, message } = req.body || {};
@@ -50,6 +75,7 @@ module.exports = async function handler(req, res) {
     host: process.env.SMTP_HOST,
     port: Number(process.env.SMTP_PORT || 587),
     secure: false,
+    requireTLS: true,
     auth: {
       user: process.env.SMTP_USER,
       pass: process.env.SMTP_PASS
