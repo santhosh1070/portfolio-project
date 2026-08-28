@@ -3,8 +3,13 @@
   "outputDirectory": "dist/portfolio-project/browser",
   "rewrites": [
     {
-      "source": "/(.*)",
+      "source": "/((?!api(?:/|$)).*)",
       "destination": "/index.html"
     }
-  ]
+  ],
+  "functions": {
+    "api/contact.js": {
+      "runtime": "nodejs22.x"
+    }
+  }
 }

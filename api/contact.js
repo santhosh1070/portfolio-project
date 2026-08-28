@@ -1,5 +1,14 @@
 const nodemailer = require('nodemailer');
 
+function escapeHtml(value) {
+  return String(value)
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#039;');
+}
+
 module.exports = async function handler(req, res) {
   res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS');
@@ -19,6 +28,24 @@ module.exports = async function handler(req, res) {
     return res.status(400).json({ message: 'Name, email, and message are required.' });
   }
 
+  const trimmedName = String(name).trim();
+  const trimmedEmail = String(email).trim();
+  const trimmedMessage = String(message).trim();
+
+  if (trimmedName.length < 2 || trimmedName.length > 100 || trimmedMessage.length < 10 || trimmedMessage.length > 5000) {
+    return res.status(400).json({ message: 'Please provide valid contact details.' });
+  }
+
+  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(trimmedEmail)) {
+    return res.status(400).json({ message: 'Please provide a valid email address.' });
+  }
+
+  const requiredConfig = ['SMTP_HOST', 'SMTP_USER', 'SMTP_PASS', 'RECIPIENT_EMAIL'];
+  if (requiredConfig.some((key) => !process.env[key])) {
+    console.error('Missing SMTP environment variables.');
+    return res.status(500).json({ message: 'Email service is not configured.' });
+  }
+
   const transporter = nodemailer.createTransport({
     host: process.env.SMTP_HOST,
     port: Number(process.env.SMTP_PORT || 587),
@@ -33,14 +60,14 @@ module.exports = async function handler(req, res) {
     await transporter.sendMail({
       from: process.env.SMTP_FROM || process.env.SMTP_USER,
       to: process.env.RECIPIENT_EMAIL,
-      replyTo: email,
-      subject: `Portfolio contact from ${name}`,
-      text: `Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`,
+      replyTo: trimmedEmail,
+      subject: `Portfolio contact from ${trimmedName}`,
+      text: `Name: ${trimmedName}\nEmail: ${trimmedEmail}\n\nMessage:\n${trimmedMessage}`,
       html: `
-        <p><strong>Name:</strong> ${name}</p>
-        <p><strong>Email:</strong> ${email}</p>
+        <p><strong>Name:</strong> ${escapeHtml(trimmedName)}</p>
+        <p><strong>Email:</strong> ${escapeHtml(trimmedEmail)}</p>
         <p><strong>Message:</strong></p>
-        <p>${message.replace(/\n/g, '<br />')}</p>
+        <p>${escapeHtml(trimmedMessage).replace(/\n/g, '<br />')}</p>
       `
     });
 
