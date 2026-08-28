@@ -2,7 +2,7 @@
   <div class="contact-intro">
     <p class="eyebrow">03 / Let’s connect</p>
     <h2 id="contact-title">Have a good idea?<br /><em>Let’s make it real.</em></h2>
-    <p class="contact-copy">Send a message and your email app will open with everything ready to go.</p>
+    <p class="contact-copy">Send a message and I'll get back to you soon.</p>
     <a class="contact-link" href="https://www.linkedin.com/in/santhosh-kumar-523b061a1/" target="_blank" rel="noopener">Find me on LinkedIn ↗</a>
     <a class="contact-link github-profile-link" href="https://github.com/santhosh1070" target="_blank" rel="noopener">View my GitHub profile &nearr;</a>
   </div>
@@ -20,6 +20,11 @@
     <textarea id="message" rows="5" formControlName="message" placeholder="Tell me about your idea" [attr.aria-invalid]="isInvalid('message')"></textarea>
     @if (isInvalid('message')) { <p class="error">Please enter at least 10 characters.</p> }
 
-    <button class="submit-button" type="submit">Open email draft <span aria-hidden="true">↗</span></button>
+    <button class="submit-button email-submit" type="submit" [disabled]="sending">
+      {{ sending ? 'Sending...' : 'Send message' }}
+    </button>
+    @if (sendStatus === 'success') { <p class="form-status success" aria-live="polite">Thanks — your message has been sent.</p> }
+    @if (sendStatus === 'error') { <p class="form-status error" aria-live="assertive">Sorry, the message could not be sent. Please try again.</p> }
+
   </form>
 </section>

@@ -11,7 +11,17 @@
       <a href="#contact">Contact</a>
     </nav>
 
-    <a class="linkedin-link" href="https://www.linkedin.com/in/santhosh-kumar-523b061a1/" target="_blank" rel="noopener">LinkedIn <span aria-hidden="true">↗</span></a>
+    <nav class="social-links" aria-label="Social links">
+      <a href="https://www.linkedin.com/in/santhosh-kumar-523b061a1/" target="_blank" rel="noopener" aria-label="Visit Santhosh Kumar on LinkedIn">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.5 8.5H3.2V21h3.3V8.5ZM4.85 3A1.94 1.94 0 1 0 4.9 6.9 1.94 1.94 0 0 0 4.85 3ZM21 13.8c0-3.77-2.01-5.53-4.7-5.53-2.17 0-3.14 1.19-3.69 2.03V8.5H9.3V21h3.31v-6.19c0-1.63.31-3.21 2.33-3.21 1.99 0 2.02 1.86 2.02 3.31V21h3.32v-7.2Z" /></svg>
+      </a>
+      <a href="https://github.com/santhosh1070" target="_blank" rel="noopener" aria-label="Visit Santhosh Kumar on GitHub">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2C6.48 2 2 6.58 2 12.24c0 4.53 2.87 8.37 6.84 9.73.5.1.68-.22.68-.49 0-.24-.01-1.04-.01-1.88-2.78.62-3.37-1.21-3.37-1.21-.46-1.19-1.11-1.5-1.11-1.5-.91-.64.07-.63.07-.63 1 .07 1.54 1.06 1.54 1.06.9 1.57 2.35 1.12 2.92.86.09-.67.35-1.12.64-1.38-2.22-.26-4.56-1.14-4.56-5.06 0-1.12.39-2.03 1.03-2.75-.1-.26-.45-1.31.1-2.73 0 0 .84-.28 2.75 1.05A9.3 9.3 0 0 1 12 6.91c.85 0 1.7.12 2.5.34 1.9-1.33 2.74-1.05 2.74-1.05.55 1.42.2 2.47.1 2.73.64.72 1.03 1.63 1.03 2.75 0 3.93-2.35 4.79-4.58 5.04.36.32.68.93.68 1.87 0 1.35-.01 2.43-.01 2.76 0 .27.18.59.69.49A10.25 10.25 0 0 0 22 12.24C22 6.58 17.52 2 12 2Z" /></svg>
+      </a>
+      <a href="https://www.instagram.com/leooo10.__/" target="_blank" rel="noopener" aria-label="Visit Santhosh Kumar on Instagram">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7.5 2h9A5.5 5.5 0 0 1 22 7.5v9a5.5 5.5 0 0 1-5.5 5.5h-9A5.5 5.5 0 0 1 2 16.5v-9A5.5 5.5 0 0 1 7.5 2Zm0 2A3.5 3.5 0 0 0 4 7.5v9A3.5 3.5 0 0 0 7.5 20h9a3.5 3.5 0 0 0 3.5-3.5v-9A3.5 3.5 0 0 0 16.5 4h-9ZM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10Zm0 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6Zm5.25-3.5a1.25 1.25 0 1 1 0 2.5 1.25 1.25 0 0 1 0-2.5Z" /></svg>
+      </a>
+    </nav>
     <div class="theme-switcher" role="group" aria-label="Color theme">
       <button type="button" [class.active]="activeTheme() === 'warm'" (click)="setTheme('warm')" aria-label="Use warm theme"></button>
       <button type="button" [class.active]="activeTheme() === 'midnight'" (click)="setTheme('midnight')" aria-label="Use midnight theme"></button>

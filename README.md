@@ -1,5 +1,26 @@
 # PortfolioProject
 
+## Vercel deployment
+
+This project deploys the Angular frontend and the `/api/contact` serverless function together on Vercel.
+
+1. Import this repository into Vercel.
+2. Keep the framework preset as Angular or choose Other if prompted.
+3. Add these environment variables in Vercel Project Settings:
+
+```text
+SMTP_HOST=smtp.gmail.com
+SMTP_PORT=587
+SMTP_USER=your-gmail-address@gmail.com
+SMTP_PASS=your-gmail-app-password
+SMTP_FROM=your-gmail-address@gmail.com
+RECIPIENT_EMAIL=your-recipient-address@example.com
+```
+
+4. Deploy. The frontend calls `/api/contact` on the same Vercel deployment.
+
+Never commit real SMTP values. The `.env.example` file contains placeholders only.
+
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.3.34.
 
 ## Development server

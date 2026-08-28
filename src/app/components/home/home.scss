@@ -4,8 +4,8 @@
 .eyebrow { color: var(--lime); font: var(--text-sm) var(--mono); margin: 0 0 24px; }
 h1 { color: var(--ink); font-size: clamp(43px, 5.6vw, 74px); font-weight: 700; letter-spacing: -.055em; line-height: 1; margin: 0; }
 em { color: var(--muted); font-style: normal; }
-.profile-photo { border: 2px solid var(--lime); border-radius: 50%; filter: grayscale(1) contrast(1.08); height: clamp(100px, 13vw, 160px); margin: 38px 0 0; object-fit: cover; opacity: .85; transition: filter .25s ease, transform .25s ease; width: clamp(100px, 13vw, 160px); }
-.profile-photo:hover { filter: grayscale(0); transform: rotate(-3deg); }
+.profile-photo { border: 2px solid var(--lime); border-radius: 50%; height: clamp(100px, 13vw, 160px); margin: 38px 0 0; object-fit: cover; transition: transform .25s ease; width: clamp(100px, 13vw, 160px); }
+.profile-photo:hover { transform: rotate(-3deg); }
 .hero-bottom { margin-top: 34px; }
 .intro { color: var(--muted); font-size: 16px; line-height: 1.65; margin: 0 0 30px; max-width: 560px; }
 .button { align-items: center; border: 1px solid var(--lime); border-radius: 4px; color: var(--lime); display: inline-flex; font: var(--text-sm) var(--mono); gap: 12px; padding: 17px 22px; transition: background .2s ease, transform .2s ease; }
