@@ -21,6 +21,7 @@ em { color: var(--coral); font-family: var(--display); font-weight: 500; }
 @media (max-width: 760px) {
   .about-section { display: block; padding: var(--space-14) var(--gutter); }
   .skills-panel { margin-top: var(--space-14); }
+  .experience-panel { border-top: 1px solid var(--line); margin-top: var(--space-12); padding-top: var(--space-8); }
   .profile-panels { display: block; margin-top: var(--space-14); padding-top: var(--space-12); }
   .profile-panel + .profile-panel { margin-top: var(--space-14); }
 }
