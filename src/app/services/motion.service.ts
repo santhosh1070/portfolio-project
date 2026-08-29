@@ -16,9 +16,8 @@ export class MotionService {
 
     this.zone.runOutsideAngular(() => {
       this.lenis = new Lenis({ lerp: 0.1, smoothWheel: true });
-      this.lenis.on('scroll', ({ progress, scroll }: { progress: number; scroll: number }) => {
+      this.lenis.on('scroll', ({ progress }: { progress: number }) => {
         this.document.documentElement.style.setProperty('--scroll-progress', `${progress * 100}%`);
-        this.document.documentElement.style.setProperty('--hero-parallax', `${scroll * 0.5}px`);
       });
 
       const tick = (time: number) => {

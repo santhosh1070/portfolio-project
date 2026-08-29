@@ -83,8 +83,7 @@ router-outlet + * {
 
 .hero { overflow: hidden; }
 .profile-photo { will-change: transform; }
-.button,
-.project-card { transform: translate3d(var(--magnetic-x, 0px), var(--magnetic-y, 0px), 0); will-change: transform; }
+.button { transform: translate3d(var(--magnetic-x, 0px), var(--magnetic-y, 0px), 0); will-change: transform; }
 .project-card { transform: perspective(900px) rotateX(var(--tilt-x, 0deg)) rotateY(var(--tilt-y, 0deg)) translate3d(var(--magnetic-x, 0px), var(--magnetic-y, 0px), 0); }
 @media (prefers-reduced-motion: reduce) {
 	.scroll-reveal,
