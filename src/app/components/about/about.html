@@ -1,4 +1,4 @@
-<section class="about-section" id="about" aria-labelledby="about-title">
+<section class="about-section scroll-reveal" appScrollReveal id="about" aria-labelledby="about-title">
   <div class="about-copy">
     <p class="eyebrow">02 / About</p>
     <h2 id="about-title">Building systems.<br /><em>Solving problems.</em></h2>
@@ -14,11 +14,11 @@
   </div>
 
   <div class="profile-panels">
-    <section class="profile-panel" id="education" aria-labelledby="education-title">
+    <section class="profile-panel scroll-reveal" appScrollReveal id="education" aria-labelledby="education-title">
       <p class="panel-label">Education</p>
       <h3 id="education-title">Where I learned<br /><em>the fundamentals.</em></h3>
       @for (education of profile.education; track education.institution) {
-        <article class="education-entry">
+        <article class="education-entry scroll-reveal" appScrollReveal [style.--reveal-index]="$index">
           <div>
             <h4>{{ education.institution }}</h4>
             <p>{{ education.qualification }}</p>
@@ -29,12 +29,12 @@
       }
     </section>
 
-    <section class="profile-panel" id="certifications" aria-labelledby="certifications-title">
+    <section class="profile-panel scroll-reveal" appScrollReveal id="certifications" aria-labelledby="certifications-title">
       <p class="panel-label">Learning record</p>
       <h3 id="certifications-title">Curious by<br /><em>default.</em></h3>
       <div class="certification-list">
         @for (certification of profile.certifications; track certification.title) {
-          <article class="certification-entry">
+          <article class="certification-entry scroll-reveal" appScrollReveal [style.--reveal-index]="$index">
             <div>
               <h4>{{ certification.title }}</h4>
               <p>{{ certification.issuer }} <span aria-hidden="true">/</span> {{ certification.issued }}</p>

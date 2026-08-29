@@ -1,14 +1,14 @@
-<section class="projects-section" id="projects" aria-labelledby="projects-title">
+<section class="projects-section scroll-reveal" appScrollReveal id="projects" aria-labelledby="projects-title">
   <div class="section-heading">
     <p class="eyebrow">01 / Professional projects</p>
     <h2 id="projects-title">Projects worked<br /><em>on</em></h2>
   </div>
   <div class="project-grid">
     @for (project of projects; track project.id; let index = $index) {
-      <a class="project-card" [class.project-coral]="index % 2 === 0" [class.project-blue]="index % 2 !== 0" [routerLink]="['/projects', project.id]">
+      <a class="project-card scroll-reveal" appScrollReveal appMagnetic appTilt [style.--reveal-index]="index" [class.project-coral]="index % 2 === 0" [class.project-blue]="index % 2 !== 0" [routerLink]="['/projects', project.id]">
         <img [src]="project.thumbnail" [alt]="project.title + ' project preview'" />
         <div class="card-body">
-          <span class="project-number">0{{ index + 1 }}</span>
+          <span class="project-number" [appCounter]="index + 1" counterPrefix="0"></span>
           <h3>{{ project.title }}</h3>
           <p>{{ project.description }}</p>
           <div class="tech-stack">@for (tech of project.techStack; track tech) { <span>{{ tech }}</span> }</div>

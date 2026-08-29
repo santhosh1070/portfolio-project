@@ -46,5 +46,59 @@ section { scroll-margin-top: 80px; }
 a { color: inherit; text-decoration: none; }
 ::selection { background: rgba(100, 255, 218, .22); color: var(--ink); }
 
+body::before {
+	background: var(--lime);
+	content: '';
+	height: 3px;
+	left: 0;
+	position: fixed;
+	right: calc(100% - var(--scroll-progress, 0%));
+	top: 0;
+	transform-origin: left;
+	transition: right .08s linear;
+	z-index: 1000;
+}
+
+router-outlet + * {
+	animation: route-enter .5s ease-out both;
+	display: block;
+}
+
+@keyframes route-enter {
+	from { opacity: 0; transform: translateY(14px); }
+	to { opacity: 1; transform: translateY(0); }
+}
+
+.scroll-reveal {
+	opacity: 0;
+	transform: translateY(40px);
+	transition: opacity .6s ease-out, transform .6s ease-out;
+	will-change: opacity, transform;
+}
+.scroll-reveal.is-visible { opacity: 1; transform: translateY(0); }
+.project-card.scroll-reveal,
+.skill-badge.scroll-reveal,
+.education-entry.scroll-reveal,
+.certification-entry.scroll-reveal { transition-delay: calc(var(--reveal-index, 0) * 100ms); }
+
+.hero { overflow: hidden; }
+.profile-photo { will-change: transform; }
+.button,
+.project-card { transform: translate3d(var(--magnetic-x, 0px), var(--magnetic-y, 0px), 0); will-change: transform; }
+.project-card { transform: perspective(900px) rotateX(var(--tilt-x, 0deg)) rotateY(var(--tilt-y, 0deg)) translate3d(var(--magnetic-x, 0px), var(--magnetic-y, 0px), 0); }
+@media (prefers-reduced-motion: reduce) {
+	.scroll-reveal,
+	.scroll-reveal.is-visible {
+		opacity: 1;
+		transform: none;
+		transition: none;
+	}
+	body::before,
+	router-outlet + * { animation: none; }
+	.profile-photo,
+	.button,
+	.project-card { transform: none; }
+}
+
 :root[data-theme='midnight'] { --ink: #e6f1ff; --paper: #0b192f; --paper-raised: #112240; --lime: #64ffda; --coral: #64ffda; --blue: #233554; --muted: #8892b0; --line: rgba(136, 146, 176, .22); }
 :root[data-theme='ocean'] { --ink: #102a43; --paper: #e8f3f5; --paper-raised: #d9ebee; --lime: #6dcaab; --coral: #e87d63; --blue: #8ebccd; --muted: #486581; --line: rgba(16, 42, 67, .18); }

@@ -9,7 +9,7 @@ em { color: var(--muted); font-style: normal; }
 .hero-bottom { margin-top: 34px; }
 .intro { color: var(--muted); font-size: 16px; line-height: 1.65; margin: 0 0 30px; max-width: 560px; }
 .button { align-items: center; border: 1px solid var(--lime); border-radius: 4px; color: var(--lime); display: inline-flex; font: var(--text-sm) var(--mono); gap: 12px; padding: 17px 22px; transition: background .2s ease, transform .2s ease; }
-.button:hover { background: rgba(100, 255, 218, .1); transform: translateY(-3px); }
+.button:hover { background: rgba(100, 255, 218, .1); transform: translate3d(var(--magnetic-x, 0px), calc(var(--magnetic-y, 0px) - 3px), 0); }
 
 @media (max-width: 979px) { .hero { min-height: 680px; padding-top: 150px; } }
 @media (max-width: 600px) { .hero { min-height: 620px; padding: 110px 0 72px; } .intro { font-size: 15px; } }

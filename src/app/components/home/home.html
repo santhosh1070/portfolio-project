@@ -1,10 +1,10 @@
-<section class="hero" id="home" aria-labelledby="hero-title">
+<section class="hero scroll-reveal" appScrollReveal id="home" aria-labelledby="hero-title">
   <p class="eyebrow">Portfolio / 2026</p>
   <h1 id="hero-title">Hello, I’m<br /><em>{{ profile.name }}</em>.</h1>
   <img class="profile-photo" [src]="profile.imageUrl" [alt]="profile.name + ' profile photo'" />
   <div class="hero-bottom">
     <p class="intro">{{ profile.role }}<br />{{ profile.summary }}</p>
-    <a class="button" href="#projects">See my work <span aria-hidden="true">↓</span></a>
+    <a class="button" appMagnetic href="#projects">See my work <span aria-hidden="true">↓</span></a>
   </div>
 </section>
 

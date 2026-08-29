@@ -6,7 +6,7 @@ export class ProfileService {
   getProfile(): Profile {
     return {
       name: 'Santhosh Kumar',
-      imageUrl: 'https://media.licdn.com/dms/image/v2/D5603AQEjqteaSUzp_g/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1701107493311?e=2147483647&v=beta&t=VTGgByYDe8WBMDQb0reuts4XaooMGh4Kf2iVNKgvfH0',
+      imageUrl: '/profile-portrait.jpeg',
       role: 'Full-Stack Developer with 4+ years of experience.',
       summary: 'I build scalable enterprise applications using .NET, C#, Angular, Entity Framework, and PostgreSQL. I also develop ETL processes, SFTP-based data extraction, and AWS S3 integrations with CloudWatch monitoring. I bring strong client collaboration, requirement analysis, Agile delivery, clean architecture, and performance optimization to every project.',
       skills: ['.NET', 'C#', 'Angular', 'Entity Framework', 'PostgreSQL', 'ETL', 'SFTP', 'AWS', 'Python', 'Generative AI'],

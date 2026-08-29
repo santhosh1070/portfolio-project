@@ -1,6 +1,6 @@
 <div class="timeline" aria-label="Work experience">
   @for (experience of experiences; track experience.company + experience.dates) {
-    <article class="timeline-entry">
+    <article class="timeline-entry scroll-reveal" appScrollReveal [style.--reveal-index]="$index">
       <div class="timeline-marker" aria-hidden="true"></div>
       <div class="timeline-meta">
         <span>{{ experience.dates }}</span>
