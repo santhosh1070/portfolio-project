@@ -2,20 +2,22 @@ import { ExperienceEntry } from '../models/experience.model';
 
 export const experienceTimeline: ExperienceEntry[] = [
   {
-    role: 'Full-Stack Developer',
+    role: 'Senior Associate Consultant',
     company: 'Infosys',
-    dates: 'Current',
+    dates: 'February 2025 – Present',
     achievements: [
-      'Built scalable enterprise applications with .NET, C#, Angular, Entity Framework, and PostgreSQL.',
-      'Developed ETL processes, SFTP-based data extraction, and AWS S3 file integrations monitored through CloudWatch.',
-      'Worked directly with clients on requirement analysis and delivered quality solutions in Agile environments.',
-      'Applied clean architecture and performance optimization while continuously learning new technologies.'
+      'Designed, developed, and maintained scalable full-stack applications using C#, .NET, Entity Framework, Angular, and PostgreSQL.',
+      'Actively upskilling in Agentic AI and modern AI technologies — integrating OpenAI APIs and vector databases into enterprise applications.',
+      'Built and optimized ETL processes in .NET and Python, extracting data from SFTP servers and processing it through efficient database functions.',
+      'Developed interactive dashboards and data visualizations using Syncfusion charts to support business reporting needs.',
+      'Worked closely with clients and business stakeholders to understand requirements and deliver high-quality software aligned with business goals.',
+      'Collaborated with cross-functional Agile teams, delegating tasks, providing technical guidance, and ensuring timely sprint deliveries.'
     ]
   },
   {
     role: 'Software Engineer',
     company: 'Easy Design Systems',
-    dates: '3.5 years',
+    dates: 'October 2022 – February 2025',
     achievements: [
       'Started my professional journey building scalable web applications as part of an engineering team.',
       'Worked on exciting projects, tackled complex challenges, and contributed to practical product delivery.',

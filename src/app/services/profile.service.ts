@@ -7,9 +7,9 @@ export class ProfileService {
     return {
       name: 'Santhosh Kumar',
       imageUrl: '/profile-portrait.jpeg',
-      role: 'Full-Stack Developer with 4+ years of experience.',
-      summary: 'I build scalable enterprise applications using .NET, C#, Angular, Entity Framework, and PostgreSQL. I also develop ETL processes, SFTP-based data extraction, and AWS S3 integrations with CloudWatch monitoring. I bring strong client collaboration, requirement analysis, Agile delivery, clean architecture, and performance optimization to every project.',
-      skills: ['.NET', 'C#', 'Angular', 'Entity Framework', 'PostgreSQL', 'ETL', 'SFTP', 'AWS', 'Python', 'Generative AI'],
+      role: 'Full-Stack Developer with 5+ years of experience building enterprise applications with .NET, Angular, and AWS — now expanding into AI-powered systems.',
+      summary: 'I\'ve spent the last 5+ years building enterprise-grade applications — from scalable .NET/Angular systems to ETL pipelines that move data reliably between SFTP servers, databases, and the cloud. Along the way, I\'ve picked up more than code: I guide and mentor teammates, delegate work across sprints, and take technical ownership when it counts. These days, I\'m pointing that same enterprise mindset at a newer problem — building AI-enabled features into production systems. I\'m integrating OpenAI APIs and vector databases into real applications, learning what it actually takes to make LLMs useful inside enterprise software rather than just impressive in a demo. Client collaboration, clean architecture, and performance optimization are still the backbone of how I work — AI is the newest tool in that toolbox, not a replacement for the fundamentals.',
+      skills: ['.NET', 'C#', 'Angular', 'OpenAI API', 'Vector Databases', 'Entity Framework', 'PostgreSQL', 'AWS', 'ETL', 'SFTP', 'Python'],
       education: [
         {
           institution: 'Sri Krishna Arts and Science College',
